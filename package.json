@@ -1,0 +1,11 @@
+{
+  "name": "midnight-snack",
+  "version": "0.0.0",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylanscott/midnight-snack.git"
+  },
+  "author": "dylan.scott@gmail.com"
+}
