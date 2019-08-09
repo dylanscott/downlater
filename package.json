@@ -1,12 +1,18 @@
 {
-  "name": "midnight-snack",
+  "name": "downlater",
   "version": "0.0.0",
-  "scripts": {},
+  "author": "dylan.scott@gmail.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dylanscott/midnight-snack.git"
+    "url": "git+https://github.com/dylanscott/downlater.git"
   },
-  "author": "dylan.scott@gmail.com",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "bin": {
+    "dl": "./out/dl.js"
+  },
   "devDependencies": {
     "typescript": "^3.5.3"
   }
