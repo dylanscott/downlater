@@ -29,6 +29,12 @@ export async function fetchDownloadQueue(): Promise<QueuedDownload[]> {
     }));
 }
 
+export async function markComplete(id: number): Promise<void> {
+    await promisify((cb: (err: Error | null) => void) => {
+        return DB.run('DELETE FROM YTDLQueue WHERE id = ?', id, cb);
+    })();
+}
+
 export async function appendToDownloadQueue(info: VideoInfo, format: string): Promise<void> {
     await promisify((cb: (err: Error | null) => void) => {
         return DB.run('INSERT INTO YTDLQueue(json, format) VALUES (?, ?)', JSON.stringify(info), format, cb);

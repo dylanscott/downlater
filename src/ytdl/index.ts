@@ -25,3 +25,8 @@ export async function fetchVideoInfo(url: string): Promise<VideoInfo> {
     const { stdout } = await exec(`youtube-dl --dump-single-json ${url}`);
     return JSON.parse(stdout);
 }
+
+export async function downloadVideo(info: VideoInfo, format: string): Promise<void> {
+    const url = `https://www.youtube.com/watch?v=${info.display_id}`;
+    await exec(`youtube-dl --no-progress --format ${format} -o '/Users/dylanscott/Downloads/%(title)s.%(ext)s' ${url}`);
+}

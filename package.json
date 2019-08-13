@@ -12,7 +12,8 @@
   },
   "bin": {
     "dl": "./out/dl.js",
-    "dladd": "./out/dladd.js"
+    "dladd": "./out/dladd.js",
+    "dldrain": "./out/dldrain.js"
   },
   "devDependencies": {
     "@types/jest": "^24.0.17",
