@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>Label</key>
+		<string>local.downlater</string>
+		<key>Program</key>
+		<string>/usr/local/bin/dldrain</string>
+        <key>StandardOutPath</key>
+        <string>/Users/dylanscott/Code/downlater/stdout.log</string>
+        <key>StandardErrorPath</key>
+        <string>/Users/dylanscott/Code/downlater/stderr.log</string>
+        <key>StartCalendarInterval</key>
+        <dict>
+	        <key>Hour</key>
+	        <integer>2</integer>
+	        <key>Minute</key>
+	        <integer>15</integer>
+        </dict>
+	</dict>
+</plist>
