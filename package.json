@@ -13,7 +13,8 @@
   "bin": {
     "dladd": "./out/dladd.js",
     "dldrain": "./out/dldrain.js",
-    "dlq": "./out/dlq.js"
+    "dlq": "./out/dlq.js",
+    "dlrm": "./out/dlrm.js"
   },
   "devDependencies": {
     "@types/cli-table": "^0.3.0",

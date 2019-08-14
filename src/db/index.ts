@@ -29,6 +29,17 @@ export async function fetchDownloadQueue(): Promise<QueuedDownload[]> {
     }));
 }
 
+export async function getQueueEntry(id: number): Promise<QueuedDownload | null> {
+    const row = await promisify((cb: (err: Error | null, row: YTDLQueueRow) => void) => {
+        return DB.get('SELECT * FROM YTDLQueue WHERE id = ?;', id, cb);
+    })();
+    return {
+        id: row.id,
+        format: row.format,
+        info: JSON.parse(row.json),
+    };
+}
+
 export async function markComplete(id: number): Promise<void> {
     await promisify((cb: (err: Error | null) => void) => {
         return DB.run('DELETE FROM YTDLQueue WHERE id = ?', id, cb);
