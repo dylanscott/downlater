@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/local/bin/node
 import moment from 'moment';
 
 import { downloadVideo } from './ytdl';

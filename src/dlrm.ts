@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/local/bin/node
 
 import { getQueueEntry, markComplete } from './db';
 

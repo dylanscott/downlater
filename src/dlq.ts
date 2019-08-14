@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/local/bin/node
 
 import Table from 'cli-table';
 import prettyBytes from 'pretty-bytes';
