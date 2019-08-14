@@ -19,7 +19,7 @@ async function drain() {
 
 function checkTime() {
     const time = moment();
-    if (time.hour() < 2 || time.hour() >= 8) {
+    if (time.hour() < 2 || time.hour() >= 7) {
         throw new Error("The time isn't right.");
     }
 }
