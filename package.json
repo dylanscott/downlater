@@ -11,9 +11,9 @@
     "watch": "tsc -w"
   },
   "bin": {
-    "dl": "./out/dl.js",
     "dladd": "./out/dladd.js",
-    "dldrain": "./out/dldrain.js"
+    "dldrain": "./out/dldrain.js",
+    "dlq": "./out/dlq.js"
   },
   "devDependencies": {
     "@types/cli-table": "^0.3.0",

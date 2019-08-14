@@ -19,6 +19,7 @@ export interface FormatInfo {
     format: string;
     height: number;
     width: number;
+    filesize: number;
 }
 
 export async function fetchVideoInfo(url: string): Promise<VideoInfo> {
