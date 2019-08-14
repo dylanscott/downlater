@@ -8,6 +8,7 @@ import { QueuedDownload, fetchDownloadQueue } from './db';
 type ColumnMapping = (row: QueuedDownload) => string;
 const TABLE_COLUMNS: Record<string, ColumnMapping> = {
     Id: (row) => row.id.toString(),
+    Channel: (row) => row.info.uploader,
     Title: (row) => row.info.title,
     Format: (row) => {
         const format = row.info.formats.find((format) => format.format_id === row.format);
