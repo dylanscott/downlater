@@ -32,7 +32,8 @@ async function add(url: string) {
         name: 'value',
         message: 'Pick a format',
         choices: availableFormats.map((format) => ({
-            title: `${format.format_note} - ${format.filesize ? prettyBytes(format.filesize) : '(unknown size)'}`,
+            title: format.format_note,
+            description: format.filesize ? prettyBytes(format.filesize) : '(unknown size)',
             value: format.format_id,
         })),
         initial: availableFormats.findIndex((format) => format.format_note === '720p'),
