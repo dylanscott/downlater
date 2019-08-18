@@ -1,20 +1,28 @@
 #!/usr/local/bin/node
 
-import { fetchVideoInfo } from './ytdl';
+import { VideoInfo, FormatInfo, fetchVideoInfo } from './ytdl';
 import { appendToDownloadQueue } from './db';
-
-const ALLOWED_FORMAT_ID = '22';
 
 async function add(url: string) {
     const info = await fetchVideoInfo(url);
 
-    // currently only supporting format = 22
-    const matchingFormat = info.formats.find((format) => format.format_id === ALLOWED_FORMAT_ID);
+    const matchingFormat = getAllowedDownloadFormat(info);
     if (!matchingFormat) {
-        throw new Error(`video ${url} does not have format ${ALLOWED_FORMAT_ID}`);
+        throw new Error(`video ${url} does not have compatible format`);
     }
 
-    await appendToDownloadQueue(info, ALLOWED_FORMAT_ID);
+    await appendToDownloadQueue(info, matchingFormat.format_id);
+}
+
+const ALLOWED_FORMAT_IDS = ['22', '720p'];
+function getAllowedDownloadFormat(info: VideoInfo): FormatInfo | null {
+    for (const id of ALLOWED_FORMAT_IDS) {
+        const matchingFormat = info.formats.find((format) => format.format_id === id);
+        if (matchingFormat) {
+            return matchingFormat;
+        }
+    }
+    return null;
 }
 
 if (process.argv[2]) {
