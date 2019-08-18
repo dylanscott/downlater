@@ -9,6 +9,7 @@ export interface VideoInfo {
     description: string;
     upload_date: string;
     uploader: string;
+    webpage_url: string;
     formats: FormatInfo[];
     tags: string[];
 }
@@ -28,6 +29,5 @@ export async function fetchVideoInfo(url: string): Promise<VideoInfo> {
 }
 
 export async function downloadVideo(info: VideoInfo, format: string): Promise<void> {
-    const url = `https://www.youtube.com/watch?v=${info.display_id}`;
-    await exec(`/usr/local/bin/youtube-dl --no-progress --format ${format} -o '/Users/dylanscott/Downloads/%(title)s.%(ext)s' ${url}`);
+    await exec(`/usr/local/bin/youtube-dl --no-progress --format ${format} -o '/Users/dylanscott/Downloads/%(title)s.%(ext)s' ${info.webpage_url}`);
 }
