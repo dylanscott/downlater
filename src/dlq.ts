@@ -12,7 +12,7 @@ const TABLE_COLUMNS: Record<string, ColumnMapping> = {
     Title: (row) => row.info.title,
     Format: (row) => {
         const format = row.info.formats.find((format) => format.format_id === row.format);
-        return format!.format_note;
+        return format!.format_note || format!.format;
     },
     Size: (row) => {
         const format = row.info.formats.find((format) => format.format_id === row.format);
